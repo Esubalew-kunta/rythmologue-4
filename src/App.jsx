@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import StickyBookingBar from './components/layout/StickyBookingBar'
+import FloatingCall from './components/layout/FloatingCall'
 import { ScrollProgress } from './components/fx/motion'
 import { useI18n } from './i18n/i18n'
 import Home from './pages/Home'
@@ -49,6 +50,7 @@ export default function App() {
       </main>
       <Footer />
       <StickyBookingBar />
+      <FloatingCall />
     </div>
   )
 }
