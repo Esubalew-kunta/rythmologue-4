@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --base: #f6fbf9;
+    --signal: #3e9e82;
+    --signal-deep: #2c7a64;
+    --ink: #0f2a22;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    background: var(--base);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-obsidian text-pearl font-sans antialiased;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    font-variant-numeric: lining-nums;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-pearl;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    font-weight: 500;
+  }
+
+  a { color: inherit; }
+  ::selection { background: var(--signal); color: #ffffff; }
+
+  :focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .container-edge { @apply mx-auto w-full max-w-edge px-5 sm:px-8 lg:px-12; }
+
+  /* Tracked-uppercase telemetry label (Geist Mono), green. */
+  .eyebrow {
+    @apply font-mono text-2xs font-medium uppercase tracking-label text-signal-deep;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* Bright glass card. */
+  .glass {
+    background: linear-gradient(160deg, rgba(255,255,255,0.9), rgba(241,249,245,0.72));
+    border: 1px solid rgba(62,158,130,0.16);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px -22px rgba(15,42,34,0.10);
+  }
+  .glass-soft {
+    background: rgba(255,255,255,0.72);
+    border: 1px solid rgba(15,42,34,0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  /* Soft green glow on text (very subtle on light). */
+  .glow-text { text-shadow: 0 2px 20px rgba(62,158,130,0.18); }
+
+  .hairline-aqua { background: linear-gradient(90deg, transparent, rgba(62,158,130,0.4), transparent); }
+
+  .skip-link { @apply sr-only; }
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-[100] rounded-panel bg-signal px-4 py-2 text-sm font-semibold text-white;
+  }
+
+  .scroll-strip { -ms-overflow-style: none; scrollbar-width: none; }
+  .scroll-strip::-webkit-scrollbar { display: none; }
+
+  /* Monitor grid backdrop for stat tiles (faint green on white). */
+  .bg-monitor {
+    background-image:
+      linear-gradient(rgba(62,158,130,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(62,158,130,0.07) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  /* Fine dotted texture. */
+  .bg-stars {
+    background-image: radial-gradient(rgba(15,42,34,0.06) 1px, transparent 1px);
+    background-size: 34px 34px;
+  }
+}
