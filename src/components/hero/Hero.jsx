@@ -8,15 +8,17 @@ import { EcgOfLight, EcgMini } from '../fx/Ecg'
 import { Reveal, TextGenerate, CountUp, Parallax, motion } from '../fx/motion'
 import { BeamButton, Arrow, MonitorStat } from '../fx/cards'
 import { MediaPlaceholder } from '../ui/Media'
+import { SignalField, SourceGlyph } from '../brand/Champ'
 import { site } from '../../data/site'
 
-const OPTIONS = [1, 2, 3, 4, 5]
+const OPTIONS = [1, 2, 3, 4, 5, 6]
 const NAMES = {
   1: ['Split', 'Split'],
   2: ['Centré', 'Centered'],
   3: ['Éditorial', 'Editorial'],
   4: ['Bento', 'Bento'],
   5: ['Typographique', 'Typographic'],
+  6: ['Clinique Lumière', 'Clinique Lumière'],
 }
 
 export default function Hero() {
@@ -223,13 +225,90 @@ export default function Hero() {
         </div>
       </div>
     ),
+    // 6 - Clinique Lumière (ported from rythmologue3)
+    6: (
+      <div>
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-6">
+            <Reveal>
+              <p className="font-['Schibsted_Grotesk'] text-xs font-semibold uppercase tracking-[0.16em] text-[#1F6B54]">
+                Cardiologue · Rythmologue · Hôpital Américain de Paris
+              </p>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h1 className="mt-6 font-['Schibsted_Grotesk'] text-[2.6rem] font-bold leading-[1.03] tracking-[-0.02em] text-[#14181A] sm:text-5xl xl:text-6xl">
+                Comprendre votre rythme,<br />
+                <span className="text-[#1F6B54]">retrouver votre sérénité.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-7 max-w-xl font-['Source_Sans_3'] text-lg leading-relaxed text-[#4C565B]">
+                {t(
+                  "Spécialiste des troubles du rythme cardiaque, j'accompagne chaque patient avec des explications claires et une prise en charge de pointe, de la fibrillation atriale à l'ablation. Vous êtes entre de bonnes mains.",
+                  'A heart-rhythm specialist, I guide every patient with clear explanations and leading-edge care, from atrial fibrillation to ablation. You are in good hands.'
+                )}
+              </p>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="mt-9 flex flex-wrap items-center gap-4">
+                <a href={site.doctolib} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-[10px] bg-[#1F6B54] px-7 py-3.5 text-lg font-semibold text-white transition-colors hover:bg-[#174F3F]">
+                  {t('Prendre rendez-vous', 'Book an appointment')}<Arrow />
+                </a>
+                <Link to="/dr-sana-amraoui" className="font-['Schibsted_Grotesk'] text-base font-semibold text-[#1F6B54] hover:text-[#174F3F]">
+                  {t('Découvrir mon approche', 'Discover my approach')}
+                </Link>
+              </div>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="mt-6 inline-flex items-center gap-2 font-['Source_Sans_3'] text-sm text-[#6E7A80]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#1F6B54]" />
+                {t('Sur rendez-vous · Doctolib · réponse rapide', 'By appointment · Doctolib · quick reply')}
+              </p>
+            </Reveal>
+          </div>
+          <div className="lg:col-span-6">
+            <div className="relative mx-auto max-w-[420px]">
+              <SignalField count={10} cx={300} cy={300} baseR={40} gap={30} warmBloom className="pointer-events-none absolute -inset-[26%] h-[152%] w-[152%]" />
+              <Reveal delay={0.1} className="relative">
+                <div className="overflow-hidden rounded-[22px]">
+                  <MediaPlaceholder label={t('Portrait Dr Amraoui', 'Portrait Dr Amraoui')} ratio="4/5" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.35}>
+                <div className="absolute -bottom-5 -left-4 flex items-center gap-3 rounded-[14px] border border-[#DCE2E4] bg-white px-4 py-3 shadow-[0_16px_36px_-30px_rgba(15,42,34,0.25)]">
+                  <SourceGlyph rings={3} size={30} />
+                  <div>
+                    <p className="text-sm font-semibold text-[#14181A]">{t("Cheffe d'unité", 'Head of unit')}</p>
+                    <p className="text-xs text-[#4C565B]">Hôpital Américain de Paris</p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+        <Reveal delay={0.2}>
+          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-3 border-t border-[#DCE2E4] pt-6">
+            <span className="font-['Schibsted_Grotesk'] text-xs font-semibold uppercase tracking-[0.16em] text-[#6E7A80]">{t('Formée & reconnue par', 'Trained & recognised by')}</span>
+            {['Hôpital Américain de Paris', "St Thomas' · Londres", 'Columbia · New York', 'LSE', 'Université de Bordeaux'].map((inst) => (
+              <span key={inst} className="font-['Source_Sans_3'] text-sm font-medium text-[#4C565B]">{inst}</span>
+            ))}
+          </div>
+        </Reveal>
+      </div>
+    ),
   }
 
   return (
     <section className="relative overflow-hidden bg-obsidian pt-[76px]">
-      <Aurora />
-      <Spotlight />
-      <Stars />
+      {v === 6 ? (
+        <div className="absolute inset-0 bg-[#F2F5F6]" aria-hidden="true" />
+      ) : (
+        <>
+          <Aurora />
+          <Spotlight />
+          <Stars />
+        </>
+      )}
 
       <Container className="relative">
         {/* selector */}
