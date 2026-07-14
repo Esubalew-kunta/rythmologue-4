@@ -1,7 +1,7 @@
 import { site } from '../../data/site'
 import { useI18n } from '../../i18n/i18n'
 
-// Floating "call the office" button — booking by phone is always one tap away.
+// Floating "call the office" button - booking by phone is always one tap away.
 // Sits above the mobile StickyBookingBar (bottom-24 on mobile, bottom-6 from sm+).
 export default function FloatingCall() {
   const { t } = useI18n()

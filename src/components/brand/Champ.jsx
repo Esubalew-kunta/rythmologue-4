@@ -1,10 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion'
 
 // ─────────────────────────────────────────────────────────────────────────────
-// « Le Champ » — the signature motif.
+// « Le Champ » - the signature motif.
 // Concentric hairline "signal-field" rings radiating from a single source-point,
 // the way a rythmologue maps the heart's electrical activation. Calm rings
-// (order, resolved rhythm) — the deliberate ANTI-ECG. Never a drawn waveform.
+// (order, resolved rhythm) - the deliberate ANTI-ECG. Never a drawn waveform.
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Large field for hero / section backgrounds. Bleeds; place inside overflow-hidden.
@@ -72,7 +72,7 @@ export function SignalField({
   )
 }
 
-// Small source-glyph icon — ring count encodes the condition/treatment identity.
+// Small source-glyph icon - ring count encodes the condition/treatment identity.
 export function SourceGlyph({ rings = 3, size = 46, color = '#1F6B54', className = '' }) {
   const c = size / 2
   const gap = (size / 2 - 4) / (rings + 0.5)
@@ -105,7 +105,7 @@ export function CornerMark({ size = 22, color = '#1F6B54', className = '', corne
   )
 }
 
-// A calm horizontal "cartographie" band — faint concentric arcs bleeding from a
+// A calm horizontal "cartographie" band - faint concentric arcs bleeding from a
 // corner source, for full-width section dividers/decor.
 export function FieldBand({ className = '', color = '#1F6B54' }) {
   return (

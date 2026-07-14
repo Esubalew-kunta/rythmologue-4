@@ -95,15 +95,14 @@ export default function Hero() {
 
   const Portrait = ({ floats = true, ratio = '4/5', className = '' }) => (
     <div className={`relative mx-auto max-w-sm ${className}`}>
-      <div className="pointer-events-none absolute -inset-8 rounded-full bg-signal/10 blur-3xl" aria-hidden="true" />
-      <MediaPlaceholder label={t('Portrait Dr Amraoui', 'Portrait Dr Amraoui')} ratio={ratio} glow />
+      <MediaPlaceholder label={t('Portrait Dr Amraoui', 'Portrait Dr Amraoui')} ratio={ratio} />
       {floats && (
         <>
           <div className="glass absolute -right-4 top-8 flex items-center gap-3 rounded-panel px-4 py-3">
             <EcgMini className="h-5 w-12" />
             <div className="leading-none">
-              <p className="font-mono text-lg font-medium text-signal-deep">72<span className="ml-1 text-xs text-mist">bpm</span></p>
-              <p className="mt-1 text-2xs text-mist">{t('rythme sinusal', 'sinus rhythm')}</p>
+              <p className="text-lg font-semibold text-signal-deep">72<span className="ml-1 text-xs font-normal text-mist">bpm</span></p>
+              <p className="mt-1.5 text-2xs text-mist">{t('rythme sinusal', 'sinus rhythm')}</p>
             </div>
           </div>
           <div className="glass absolute -bottom-4 -left-4 flex items-center gap-3 rounded-panel px-4 py-3">
@@ -122,7 +121,7 @@ export default function Hero() {
 
   // ── layouts ───────────────────────────────────────────────────────────────
   const layouts = {
-    // 1 — Split
+    // 1 - Split
     1: (
       <div>
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-10">
@@ -139,7 +138,7 @@ export default function Hero() {
         <div className="mt-12"><Stats /></div>
       </div>
     ),
-    // 2 — Centered
+    // 2 - Centered
     2: (
       <div className="py-6">
         <div className="mx-auto max-w-3xl text-center">
@@ -153,7 +152,7 @@ export default function Hero() {
         <div className="mx-auto mt-12 max-w-5xl"><Stats /></div>
       </div>
     ),
-    // 3 — Editorial (image-forward, stats as list)
+    // 3 - Editorial (image-forward, stats as list)
     3: (
       <div className="grid items-stretch gap-10 lg:grid-cols-12">
         <div className="lg:col-span-5">
@@ -181,7 +180,7 @@ export default function Hero() {
         </div>
       </div>
     ),
-    // 4 — Bento (glass tiles / dashboard)
+    // 4 - Bento (glass tiles / dashboard)
     4: (
       <div className="grid gap-4 lg:grid-cols-12">
         <Reveal className="lg:col-span-7" delay={0}>
@@ -205,7 +204,7 @@ export default function Hero() {
         </Reveal>
       </div>
     ),
-    // 5 — Typographic minimal (ECG threads behind giant type)
+    // 5 - Typographic minimal (ECG threads behind giant type)
     5: (
       <div className="relative py-8 text-center">
         <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 opacity-60" aria-hidden="true">

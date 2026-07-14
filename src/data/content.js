@@ -1,4 +1,4 @@
-// Clinical + editorial content — sourced from the real site content, the audit,
+// Clinical + editorial content - sourced from the real site content, the audit,
 // and Dr Amraoui's own clinic articles. Kept structured so pages stay thin.
 
 // ── Authority / credentials ─────────────────────────────────────────────────

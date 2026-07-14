@@ -36,20 +36,17 @@ export default function Home() {
       {/* ═══════════════ 01 · ARYTHMIE ═══════════════ */}
       <Section className="bg-abyss">
         <Container>
-          <Reveal blur><SectionHead index={t('01 · Arythmie', '01 · Arrhythmia')} title={t('Reconnaître ce que vous ressentez', 'Recognise what you feel')} lede={t('Palpitations, essoufflement, malaises. Chaque trouble du rythme a ses signes. Commencez par ce qui vous ressemble.', 'Palpitations, breathlessness, blackouts. Every rhythm disorder has its signs. Start with what feels familiar.')} /></Reveal>
+          <Reveal><SectionHead title={t('Reconnaître ce que vous ressentez', 'Recognise what you feel')} lede={t('Palpitations, essoufflement, malaises. Chaque trouble du rythme a ses signes. Commencez par ce qui vous ressemble.', 'Palpitations, breathlessness, blackouts. Every rhythm disorder has its signs. Start with what feels familiar.')} /></Reveal>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {conditions.map((c, i) => (
-              <Reveal key={c.slug} delay={i * 0.08} blur>
+              <Reveal key={c.slug} delay={i * 0.06}>
                 <Link to={c.slug} className="block h-full">
-                  <GlowCard className="h-full p-6">
-                    <div className="flex items-center justify-between">
-                      <span className="eyebrow text-mist">{c.n}</span>
-                      {c.flag && <span className="rounded-md bg-signal/12 px-2 py-0.5 text-2xs font-semibold text-signal-deep">{c.flag}</span>}
-                    </div>
-                    <h3 className="mt-5 font-display text-xl font-medium text-pearl">{c.name}</h3>
+                  <GlowCard className="flex h-full flex-col p-6">
+                    {c.flag && <span className="mb-4 w-fit rounded-md bg-signal/10 px-2 py-0.5 text-2xs font-semibold text-signal-deep">{c.flag}</span>}
+                    <h3 className="font-display text-xl font-medium text-pearl">{c.name}</h3>
                     <p className="mt-1 text-sm font-medium text-signal-deep">{c.symptom}</p>
-                    <p className="mt-3 text-sm text-mist">{c.blurb}</p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-pearl">{t('En savoir plus', 'Learn more')} <Arrow /></span>
+                    <p className="mt-3 flex-1 text-sm text-mist">{c.blurb}</p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-pearl transition-colors group-hover:text-signal-deep">{t('En savoir plus', 'Learn more')} <Arrow /></span>
                   </GlowCard>
                 </Link>
               </Reveal>
@@ -62,17 +59,16 @@ export default function Home() {
       <Section className="relative overflow-hidden">
         <Parallax offset={40} className="pointer-events-none absolute inset-0"><Aurora intensity={0.5} /></Parallax>
         <Container className="relative">
-          <Reveal blur><SectionHead index={t('02 · Traitements', '02 · Treatments')} title={t('Des solutions concrètes, expliquées simplement', 'Real solutions, explained simply')} lede={t("De l'ablation mini-invasive aux dispositifs implantables, chaque option vous est présentée avec ses bénéfices et son déroulé.", 'From minimally invasive ablation to implantable devices, each option is shown with its benefits and how it works.')} /></Reveal>
+          <Reveal><SectionHead title={t('Des solutions concrètes, expliquées simplement', 'Real solutions, explained simply')} lede={t("De l'ablation mini-invasive aux dispositifs implantables, chaque option vous est présentée avec ses bénéfices et son déroulé.", 'From minimally invasive ablation to implantable devices, each option is shown with its benefits and how it works.')} /></Reveal>
           <div className="mt-14 grid gap-5 lg:grid-cols-3">
             {treatments.map((tr, i) => (
-              <Reveal key={tr.slug} delay={i * 0.08} blur>
+              <Reveal key={tr.slug} delay={i * 0.06}>
                 <Link to={tr.slug} className="block h-full">
-                  <GlowCard className="h-full p-7">
-                    <span className="eyebrow text-signal-deep">{`0${i + 1}`}</span>
-                    <p className="mt-5 text-sm font-medium text-signal-deep">{tr.lead}</p>
+                  <GlowCard className="flex h-full flex-col p-7">
+                    <p className="text-sm font-medium text-signal-deep">{tr.lead}</p>
                     <h3 className="mt-1 font-display text-xl font-medium text-pearl">{tr.name}</h3>
-                    <p className="mt-3 text-sm text-mist">{tr.blurb}</p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-pearl">{t('Découvrir', 'Discover')} <Arrow /></span>
+                    <p className="mt-3 flex-1 text-sm text-mist">{tr.blurb}</p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-pearl transition-colors group-hover:text-signal-deep">{t('Découvrir', 'Discover')} <Arrow /></span>
                   </GlowCard>
                 </Link>
               </Reveal>
@@ -88,11 +84,11 @@ export default function Home() {
           <EcgOfLight className="h-full w-full" />
         </Parallax>
         <Container className="relative">
-          <Reveal blur>
+          <Reveal>
             <p className="eyebrow mb-6">{t('Prendre soin de votre cœur', 'Care for your heart')}</p>
             <h2 className="mx-auto max-w-2xl font-display text-4xl font-medium tracking-tightish text-pearl sm:text-5xl">
               {t('Remettons votre cœur à son ', 'Let us bring your heart back to its ')}
-              <span className="italic text-signal glow-text">{t('juste rythme.', 'true rhythm.')}</span>
+              <span className="italic text-signal">{t('juste rythme.', 'true rhythm.')}</span>
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-mist">
               {t("Une question, un symptôme, un avis à confirmer ? Prenez rendez-vous, nous sommes là pour vous.", 'A question, a symptom, a second opinion? Book an appointment, we are here for you.')}

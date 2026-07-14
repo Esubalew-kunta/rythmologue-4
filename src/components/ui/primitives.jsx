@@ -25,7 +25,7 @@ export function Label({ children, className = '', as: As = 'p' }) {
   return <As className={`label ${className}`}>{children}</As>
 }
 
-// Section index rule: "01 — ARYTHMIE" over a hairline
+// Section index rule: "01 - ARYTHMIE" over a hairline
 export function IndexRule({ index, children, tone = 'light' }) {
   const color = tone === 'dark' ? 'border-white/15' : 'border-filet'
   const text = tone === 'dark' ? 'text-porcelaine/70' : 'text-ardoise'
@@ -39,7 +39,7 @@ export function IndexRule({ index, children, tone = 'light' }) {
   )
 }
 
-// ── Reveal — the single calm settle (fade + 12px rise), fires once ───────────
+// ── Reveal - the single calm settle (fade + 12px rise), fires once ───────────
 export function Reveal({ children, delay = 0, y = 12, className = '', as = 'div' }) {
   const reduce = useReducedMotion()
   const MotionTag = motion[as] || motion.div

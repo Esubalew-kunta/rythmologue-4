@@ -54,29 +54,21 @@
 @layer components {
   .container-edge { @apply mx-auto w-full max-w-edge px-5 sm:px-8 lg:px-12; }
 
-  /* Tracked-uppercase telemetry label (Geist Mono), green. */
+  /* Quiet label — sentence case, no mono, no tracking. */
   .eyebrow {
-    @apply font-mono text-2xs font-medium uppercase tracking-label text-signal-deep;
-    font-variant-numeric: tabular-nums lining-nums;
+    @apply font-sans text-xs font-semibold text-signal-deep;
   }
 
-  /* Bright glass card. */
-  .glass {
-    background: linear-gradient(160deg, rgba(255,255,255,0.9), rgba(241,249,245,0.72));
-    border: 1px solid rgba(62,158,130,0.16);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 8px 24px -22px rgba(15,42,34,0.10);
+  /* Clean solid surface (no glassmorphism). */
+  .panel {
+    background: #ffffff;
+    border: 1px solid rgba(15,42,34,0.08);
+    box-shadow: 0 1px 2px rgba(15,42,34,0.03), 0 16px 36px -30px rgba(15,42,34,0.16);
   }
-  .glass-soft {
-    background: rgba(255,255,255,0.72);
-    border: 1px solid rgba(15,42,34,0.06);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
+  .glass { background: #ffffff; border: 1px solid rgba(15,42,34,0.08); box-shadow: 0 1px 2px rgba(15,42,34,0.03), 0 16px 36px -30px rgba(15,42,34,0.16); }
+  .glass-soft { background: rgba(255,255,255,0.85); border: 1px solid rgba(15,42,34,0.07); }
 
-  /* Soft green glow on text (very subtle on light). */
-  .glow-text { text-shadow: 0 2px 20px rgba(62,158,130,0.18); }
+  .glow-text { text-shadow: none; }
 
   .hairline-aqua { background: linear-gradient(90deg, transparent, rgba(62,158,130,0.4), transparent); }
 
